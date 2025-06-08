@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날씨 정보 - Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-cloud-sun"></i> 날씨 정보</h1>
+            <p>실시간 날씨를 확인하세요</p>
+        </header>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="cityInput" 
+                    placeholder="도시명을 입력하세요 (예: 서울, Seoul, Tokyo)"
+                    autocomplete="off"
+                >
+                <button id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="weather-container">
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>날씨 정보를 불러오는 중...</p>
+            </div>
+
+            <div class="weather-card" id="weatherCard" style="display: none;">
+                <div class="weather-main">
+                    <div class="temperature-section">
+                        <span class="temperature" id="temperature">--°</span>
+                        <div class="weather-icon">
+                            <img id="weatherIcon" src="" alt="날씨 아이콘">
+                        </div>
+                    </div>
+                    <div class="weather-info">
+                        <h2 class="city-name" id="cityName">--</h2>
+                        <p class="weather-description" id="weatherDescription">--</p>
+                        <p class="last-updated" id="lastUpdated">--</p>
+                    </div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <i class="fas fa-eye"></i>
+                        <span class="detail-label">체감온도</span>
+                        <span class="detail-value" id="feelsLike">--°</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-tint"></i>
+                        <span class="detail-label">습도</span>
+                        <span class="detail-value" id="humidity">--%</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-wind"></i>
+                        <span class="detail-label">풍속</span>
+                        <span class="detail-value" id="windSpeed">-- km/h</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-thermometer-half"></i>
+                        <span class="detail-label">기압</span>
+                        <span class="detail-value" id="pressure">-- hPa</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-sun"></i>
+                        <span class="detail-label">UV 지수</span>
+                        <span class="detail-value" id="uvIndex">--</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-eye-low-vision"></i>
+                        <span class="detail-label">시야</span>
+                        <span class="detail-value" id="visibility">-- km</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p id="errorText">오류가 발생했습니다.</p>
+            </div>
+        </div>
+
+        <div class="forecast-container" id="forecastContainer" style="display: none;">
+            <h3><i class="fas fa-calendar-alt"></i> 5일 예보</h3>
+            <div class="forecast-grid" id="forecastGrid">
+                <!-- 5일 예보 데이터가 여기에 추가됩니다 -->
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Powered by <a href="https://www.weatherapi.com/" target="_blank">WeatherAPI.com</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
